@@ -13,15 +13,22 @@
 
 makeCacheMatrix <- function(m_dat = matrix()) {
   m_inv <- NULL
+  ## set function to assign matrix data (m_dat) and reset inverse value (m_inv)
   set <- function(y) {
     m_dat <<- y  
     m_inv <<- NULL
   }
   
+  ## return matrix (m_dat)
   get <- function() { m_dat }
+  
+  ## set cache inverse value (m_inv)
   setinverse <- function(i) { m_inv <<- i }
+  
+  ## return cache inverse value (m_inv)
   getinverse <- function() { m_inv }
   
+  ## return list of set/get functions
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
